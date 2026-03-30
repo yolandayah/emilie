@@ -1,3 +1,33 @@
-<div>
-    <!-- Very little is needed to make a happy life. - Marcus Aurelius -->
+<x-layout>
+<div class="login-container">
+ <h2>Iniciar Sesión</h2>
+  <form method="POST" action="{{ route('login.attempt')}}">
+
+    @csrf
+
+	@if ($errors->any())
+	 <div>
+	  <ul>
+		@foreach ($errors->all() as $error)
+		 <li>{{ $error }}</li>
+		@endforeach
+	  </ul>
+	 </div>
+	@endif
+
+    <div class="form-group">
+     <label for="email">Email:</label>
+     <input type="email" id="email" name="email" placeholder="Email" required>
+    </div>
+
+    <div class="form-group">
+     <label for="password">Contraseña:</label>
+     <input type="password" id="password" name="password" placeholder="Contraseña" required>
+    </div>
+
+    <button type="submit">Iniciar Sesión</button>
+  </form>
+<p class="signup-link">¿No tienes cuenta? <a href="#">Regístrate</a></p>
 </div>
+</x-layout>
+<!-- vi: set filetype=php: -->

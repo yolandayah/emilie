@@ -1,3 +1,7 @@
-<div>
-    <!-- Smile, breathe, and go slowly. - Thich Nhat Hanh -->
-</div>
+<x-layout>
+
+<h1>Bienvenido {{ Auth::user()->name }} al sistema</h1>
+
+</x-layout>
+
+<!-- vi: set filetype=php: -->
