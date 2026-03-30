@@ -3,10 +3,10 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-
 DIRECTORY=${1:-.}
+GRUPO=${2:-www-data}
 
-sudo chown -R $USER:www-data ${DIRECTORY}
+sudo chown -R ${USER}:${GRUPO} ${DIRECTORY}
 
 find ${DIRECTORY} -type f -exec chmod 660 {} \;
 find ${DIRECTORY} -type d -exec chmod 750 {} \;
@@ -15,4 +15,4 @@ find ${DIRECTORY}/storage/   -type d -exec chmod 770 {} \;
 find ${DIRECTORY}/database/  -type d -exec chmod 770 {} \;
 find ${DIRECTORY}/bootstrap/ -type d -exec chmod 770 {} \;
 
-chmod 770 ${DIRECTORY}/artisan ${DIRECTORY}/scripts ${DIRECTORY}/scripts/* 
+chmod 770 ${DIRECTORY}/artisan ${DIRECTORY}/scripts ${DIRECTORY}/scripts/*
