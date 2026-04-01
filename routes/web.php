@@ -5,7 +5,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Route::get('login', function () {
@@ -35,7 +35,11 @@ Route::post('logout', function () {
 
 })->name('logout');
 
-Route::view('register','auth.register')->name('register');
+//Route::view('register','auth.register')->name('register');
+Route::get('register',[RegisterController::class, 'showForm'])
+    ->name('register');
 
-Route::post('register', RegisterController::class)->name('register.store');
+//Route::post('register', RegisterController::class)->name('register.store');
+Route::post('register', [RegisterController::class, 'processForm'])
+    ->name('register.process');
 
