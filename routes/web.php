@@ -8,18 +8,27 @@ Route::get('/', function () {
     return view('home');
 });
 
+/*
 Route::get('login', function () {
     return view('auth.login');
 })->name('login');
+*/
+Route::get('login',[LoginController::class, 'showLoginForm'])
+    ->name('login');
 
+/*
 Route::post('login', LoginController::class)
-	->middleware('throttle:5,1')
-	->name('login.attempt');
+    ->middleware('throttle:5,1')
+    ->name('login.attempt');
+*/
+Route::post('login', [LoginController::class, 'login'])
+    ->name('login.process');
 
 Route::view('dashboard','dashboard')
-	->middleware('auth')
+->middleware('auth')
 	->name('dashboard');
 
+/*
 Route::post('logout', function () {
 
     //Auth::logout();
@@ -34,6 +43,9 @@ Route::post('logout', function () {
     return redirect('/');
 
 })->name('logout');
+*/
+Route::post('logout',[LoginController::class, 'logout'])
+    ->name('logout');
 
 //Route::view('register','auth.register')->name('register');
 Route::get('register',[RegisterController::class, 'showForm'])

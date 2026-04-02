@@ -43,6 +43,8 @@ class RegisterController extends Controller
 
         $user = User::create($userData);
 
-        dd($user);
+        return redirect()->route('login')
+                         ->with('status',
+                                'Registro exitoso, ahora puede ingresar');
     }
 }

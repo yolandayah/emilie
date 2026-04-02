@@ -13,6 +13,9 @@
 </head>
 <body>
   <main>
+@if (session('status'))
+    <div class="notice">{{ session('status') }}</div>
+@endif
     {{ $slot }}
   </main>
 </body>

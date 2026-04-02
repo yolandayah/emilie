@@ -1,7 +1,7 @@
 <x-layout>
 <div class="login-container">
  <h2>Iniciar Sesión</h2>
-  <form method="POST" action="{{ route('login.attempt')}}">
+  <form method="POST" action="{{ route('login.process')}}">
 
     @csrf
 
@@ -9,7 +9,7 @@
 
     <div class="form-group">
      <label for="email">Email:</label>
-     <input type="email" id="email" name="email" placeholder="Email" required>
+     <input type="email" id="email" name="email" placeholder="Email" value="{{ old('email')}}" required>
     </div>
 
     <div class="form-group">
