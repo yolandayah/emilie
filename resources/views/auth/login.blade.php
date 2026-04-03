@@ -17,6 +17,14 @@
      <input type="password" id="password" name="password" placeholder="Contraseña" required>
     </div>
 
+    <div class="form-group">
+     <label for="remember">
+      <input type="checkbox"
+             name="remember" {{ old('remember') == 'on' ? 'checked' : '' }}>
+      Mantener sesión iniciada
+     </label>
+    </div>
+
     <button type="submit">Iniciar Sesión</button>
   </form>
 <p class="signup-link">¿No tienes cuenta? <a href="#">Regístrate</a></p>
