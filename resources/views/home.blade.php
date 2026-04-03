@@ -3,7 +3,11 @@
 
 <div>
 @auth
+
   Hola {{ Auth::user()->name }}.
+
+  <a href="{{ route('dashboard') }}">Dashboard</a>
+
   <a href="{{ route('logout') }}"
      onclick="event.preventDefault();
               document.getElementById('logout-form').submit();"
