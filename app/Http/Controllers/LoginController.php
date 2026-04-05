@@ -10,24 +10,6 @@ use Session;
 
 class LoginController extends Controller
 {
-    public function __invoke(Request $request): RedirectResponse
-    {
-        $credentials = $request->validate([
-            'email' => ['required', 'email'],
-            'password' => ['required'],
-        ]);
-
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
-
-            return redirect()->intended('dashboard');
-        }
-
-        return back()->withErrors([
-            'email' => 'No se encuentra el Email y/o la Contraseña.',
-        ])->onlyInput('email');
-    }
-
     public function showLoginForm(): View
     {
         return view('auth.login');
@@ -43,12 +25,19 @@ class LoginController extends Controller
         $credentials = $request->only('email','password');
 
         if (Auth::attempt($credentials, $request->boolean('remember'))) {
+
+            //$request->session()->regenerate();
+
             return redirect()->intended('/')
                 ->with('status', 'Login exitoso');
         }
 
         return back()->withInput()
                      ->with('status','Credenciales invalidas');
+
+        //return back()->withErrors([
+        //    'email' => 'No se encuentra el Email y/o la Contraseña.',
+        //])->onlyInput('email');
     }
 
     public function logout(): RedirectResponse
@@ -56,6 +45,13 @@ class LoginController extends Controller
         Session::flush();
 
         Auth::logout();
+        //Auth::guard('web')->logout();
+
+        //$request->session()->invalidate();
+	    //Session::invalidate();
+
+        //$request->session()->regenerateToken();
+	    //Session::regenerateToken();
 
         return redirect('/')->with('status','Logout exitoso');
     }
