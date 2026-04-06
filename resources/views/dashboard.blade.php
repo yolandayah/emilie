@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout title="Anuncios">
 
 <h1>Bienvenido {{ Auth::user()->name }} al sistema</h1>
 

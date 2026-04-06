@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout title="Emilie - Inicio de sesión">
 <div class="login-container">
  <h2>Iniciar Sesión</h2>
   <form method="POST" action="{{ route('login.process')}}">

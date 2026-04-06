@@ -9,7 +9,10 @@
  <link rel="stylesheet" href="/css/base.css">
  -->
  <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
- <title>Página de Login</title>
+
+@props(['title' => "Título"])
+
+ <title>Emilie - {{ $title }}</title>
 </head>
 <body>
   <main>
