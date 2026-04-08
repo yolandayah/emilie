@@ -2,7 +2,7 @@
 
 <div class="login-container">
  <h2>Actualizar Contraseña</h2>
-  <form method="POST" action="{{ route('login') }}">
+  <form method="POST" action="{{ route('password.update.process') }}">
 
     @csrf
 

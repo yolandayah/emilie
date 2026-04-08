@@ -20,6 +20,11 @@ class AuthController extends Controller
         return view('auth.register');
     }
 
+    public function showUpdatePasswordForm(): View
+    {
+        return view('auth.update-password');
+    }
+
     public function login(Request $request): RedirectResponse
     {
         $request->validate([
@@ -31,10 +36,11 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials, $request->boolean('remember'))) {
 
-            //$request->session()->regenerate();
+            $request->session()->regenerate();
 
-            return redirect()->intended('/')
-                ->with('status', 'Login exitoso');
+            return redirect()
+                    ->intended('/dashboard')
+                    ->with('status', 'Login exitoso');
         }
 
         return back()->withInput()
@@ -58,7 +64,9 @@ class AuthController extends Controller
         //$request->session()->regenerateToken();
 	    //Session::regenerateToken();
 
-        return redirect('/')->with('status','Logout exitoso');
+        return redirect()
+                ->route('home')
+                ->with('status','Logout exitoso');
     }
 
     public function register(Request $request): RedirectResponse
@@ -74,6 +82,23 @@ class AuthController extends Controller
 
         Auth::login($user);
 
-        return redirect()->route('dashboard');
+        return redirect()
+                ->route('dashboard');
+    }
+
+    public function updatePassword(Request $request): RedirectResponse
+    {
+        $request->validate([
+            'password' => 'required|string|confirmed|min:6',
+        ]);
+
+        $user = auth()->user();
+        $user->password = $request->password; //Hash::make($request->password);
+        $user->force_password_change = false; // <--- AQUÍ se libera al usuario
+        $user->save();
+
+        return redirect()
+                ->route('dashboard')
+                ->with('status', 'Contraseña actualizada correctamente.');
     }
 }

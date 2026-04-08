@@ -20,8 +20,9 @@ class ForcePasswordChange
         {
             // Avoid infinite redirect loop by allowing access
             // to the change password page
-            if (!$request->is('change-password*') && !$request->is('logout')) {
-                return redirect()->route('password.update');
+            if (!$request->is('update-password*') && !$request->is('logout')) {
+                return redirect()
+                        ->route('password.update');
             }
         }
         return $next($request);

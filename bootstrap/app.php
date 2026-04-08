@@ -15,7 +15,7 @@ return Application::configure(basePath: dirname(__DIR__))
 
         $middleware->append(ForcePasswordChange::class)
                    ->alias([
-                       'password.force' => \App\Http\Middleware\ForcePasswordChange::class,
+                       'force.password' => \App\Http\Middleware\ForcePasswordChange::class,
                    ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
