@@ -8,11 +8,16 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 use Session;
 
-class LoginController extends Controller
+class AuthController extends Controller
 {
     public function showLoginForm(): View
     {
         return view('auth.login');
+    }
+
+    public function showRegisterForm(): View
+    {
+        return view('auth.register');
     }
 
     public function login(Request $request): RedirectResponse
@@ -54,5 +59,21 @@ class LoginController extends Controller
 	    //Session::regenerateToken();
 
         return redirect('/')->with('status','Logout exitoso');
+    }
+
+    public function register(Request $request): RedirectResponse
+    {
+        $userData = $request->validate([
+            'username' =>  'required|string|max:255|unique:users',
+            'name' =>  'required|string|max:255',
+            'email' => 'required|string|max:255|email|unique:users',
+            'password' => 'required|string|min:6|confirmed'
+        ]);
+
+        $user = User::create($userData);
+
+        Auth::login($user);
+
+        return redirect()->route('dashboard');
     }
 }
