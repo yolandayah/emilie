@@ -27,7 +27,8 @@
 
     <button type="submit">Iniciar Sesión</button>
   </form>
-<p class="signup-link">¿No tienes cuenta? <a href="#">Regístrate</a></p>
+ <p class="signup-link">¿No tienes cuenta?
+ <a href="{{ route('register') }}">Regístrate</a></p>
 </div>
 </x-layout>
 <!-- vi: set filetype=php: -->

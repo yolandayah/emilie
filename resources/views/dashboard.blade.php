@@ -9,6 +9,10 @@
     <button type="submit">Logout</button>
 </form>
 
+<div>
+  <a href="{{ route('admin.users.index') }}">Lista de usuarios</a></br>
+</div>
+
 </x-layout>
 
 <!-- vi: set filetype=php: -->
