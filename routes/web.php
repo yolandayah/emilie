@@ -28,7 +28,6 @@ Route::post('/register', [AuthController::class, 'register'])
 Route::middleware(['auth'])->group(function () {
 
     // Rutas protegidas por el cambio de password
-    //Route::middleware([ForcePasswordChange::class])->group(function () {
     Route::middleware(['force.password'])->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])
             ->name('dashboard');

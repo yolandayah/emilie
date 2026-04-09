@@ -51,17 +51,17 @@ class AuthController extends Controller
         //])->onlyInput('email');
     }
 
-    public function logout(): RedirectResponse
+    public function logout(Request $request): RedirectResponse
     {
-        Session::flush();
+        //Session::flush();
 
         Auth::logout();
         //Auth::guard('web')->logout();
 
-        //$request->session()->invalidate();
+        $request->session()->invalidate();
 	    //Session::invalidate();
 
-        //$request->session()->regenerateToken();
+        $request->session()->regenerateToken();
 	    //Session::regenerateToken();
 
         return redirect()
