@@ -1,7 +1,7 @@
 <x-layout title="Registro de usuario">
 
-<div class="login-container">
- <h2>Registro de usuario</h2>
+<div class="to-center-container">
+<div class="form-container">
   <form method="POST" action="{{ route('register.process') }}">
 
     @csrf
@@ -47,6 +47,7 @@
 
     <button type="submit">Registrarse</button>
   </form>
-
+</div>
+</div>
 </x-layout>
 <!-- vi: set filetype=php: -->

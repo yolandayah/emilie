@@ -1,7 +1,7 @@
 <x-layout title="Actualizar contraseña">
 
-<div class="login-container">
- <h2>Actualizar Contraseña</h2>
+<div class="to-center-container">
+<div class="form-container">
   <form method="POST" action="{{ route('password.update.process') }}">
 
     @csrf
@@ -34,6 +34,7 @@
 
     <button type="submit">Cerrar sesión</button>
 </form>
-
+</div>
+</div>
 </x-layout>
 <!-- vi: set filetype=php: -->
