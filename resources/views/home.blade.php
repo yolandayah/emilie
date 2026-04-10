@@ -1,5 +1,4 @@
 <x-layout title="Bienvenidos">
-<h1>Bienvenidos</h1>
 
 <div>
 @auth
@@ -23,5 +22,8 @@
   <a href="{{ route('login') }}">Inicia sesión</a>.
 @endauth
 </div>
+
+<img src="/img/emiliedechatelet.jpg">
+
 </x-layout>
 <!-- vi: set filetype=php: -->
