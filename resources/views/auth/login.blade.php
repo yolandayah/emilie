@@ -1,6 +1,7 @@
-<x-layout title="Emilie - Inicio de sesión">
-<div class="login-container">
- <h2>Iniciar Sesión</h2>
+<x-layout title="Inicio de sesión">
+
+<div class="to-center-container">
+<div class="form-container">
   <form method="POST" action="{{ route('login.process')}}">
 
     @csrf
@@ -8,8 +9,8 @@
     <x-form-errors />
 
     <div class="form-group">
-     <label for="email">Email:</label>
-     <input type="email" id="email" name="email" placeholder="Email" value="{{ old('email')}}" required>
+     <label for="email">Usuario o Email:</label>
+     <input type="email" id="email" name="email" placeholder="Usuario o Email" value="{{ old('email')}}" required>
     </div>
 
     <div class="form-group">
@@ -29,6 +30,7 @@
   </form>
  <p class="signup-link">¿No tienes cuenta?
  <a href="{{ route('register') }}">Regístrate</a></p>
+</div>
 </div>
 </x-layout>
 <!-- vi: set filetype=php: -->

@@ -1,4 +1,4 @@
-<x-layout title="Anuncios">
+<x-layout title="Panel de información">
 
 <h1>Bienvenido {{ Auth::user()->name }} al sistema</h1>
 
@@ -10,9 +10,8 @@
 </form>
 
 <div>
-  <a href="{{ route('admin.users.index') }}">Lista de usuarios</a></br>
+  <a href="{{ route('admin.user.index') }}">Lista de usuarios</a></br>
 </div>
 
 </x-layout>
-
 <!-- vi: set filetype=php: -->

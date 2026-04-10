@@ -40,11 +40,11 @@ class AuthController extends Controller
 
             return redirect()
                     ->intended('/dashboard')
-                    ->with('status', 'Login exitoso');
+                    ->with('success', 'Login exitoso');
         }
 
         return back()->withInput()
-                     ->with('status','Credenciales invalidas');
+                     ->with('error','Credenciales invalidas');
 
         //return back()->withErrors([
         //    'email' => 'No se encuentra el Email y/o la Contraseña.',
@@ -66,7 +66,7 @@ class AuthController extends Controller
 
         return redirect()
                 ->route('home')
-                ->with('status','Logout exitoso');
+                ->with('success','Logout exitoso');
     }
 
     public function register(Request $request): RedirectResponse
@@ -83,7 +83,8 @@ class AuthController extends Controller
         Auth::login($user);
 
         return redirect()
-                ->route('dashboard');
+                ->route('dashboard')
+                ->with('success','Registro exitoso');
     }
 
     public function updatePassword(Request $request): RedirectResponse

@@ -9,18 +9,37 @@
  <link rel="stylesheet" href="/css/base.css">
  -->
  <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+ <link rel="stylesheet" href="/css/custom.css">
 
-@props(['title' => "Título"])
+@props(['title' => 'Título'])
 
- <title>Emilie - {{ $title }}</title>
+ <title>{{ config('app.name', 'Emilie') }} - {{ $title }}</title>
+
 </head>
 <body>
-  <main>
-@if (session('status'))
-    <div class="notice">{{ session('status') }}</div>
+ <header>
+  <h1>{{ $title}}</h1>
+  <x-menu/>
+ </header>
+ <main>
+@if (session('error'))
+<div class="danger"><p><strong>¡Error!</strong>: {{ session('error') }}</p></div>
 @endif
-    {{ $slot }}
-  </main>
+@if (session('success'))
+<div class="success"><p><strong>¡Éxito!</strong>: {{ session('success') }}</p></div>
+@endif
+@if (session('status'))
+<div class="info"><p><strong>¡Información!</strong>: {{ session('status') }}</p></div>
+@endif
+@if (session('warning'))
+<div class="warning"><p><strong>¡Advertencia!</strong>: {{ session('warning') }}</p></div>
+@endif
+
+  {{ $slot }}
+ </main>
+ <footer>
+  <p>&copy; 2026 Mi Sitio Web</p>
+ </footer>
 </body>
 </html>
 <!-- vi: set filetype=php: -->
