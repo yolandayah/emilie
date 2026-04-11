@@ -1,0 +1,3 @@
+Login con usuario y email
+Terminar permisos y roles
+agregar los SPDX
