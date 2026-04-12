@@ -1,2 +1,0 @@
-x 2026-04-12 agregar los SPDX
-x 2026-04-11 Login con usuario y email
