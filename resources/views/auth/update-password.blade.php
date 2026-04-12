@@ -6,9 +6,7 @@
 
     @csrf
 
-    <x-form-errors />
-
-    <p >
+    <p>
       Por seguridad, debes cambiar tu contraseña.
     </p>
 

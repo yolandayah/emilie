@@ -6,8 +6,6 @@
 
     @csrf
 
-    <x-form-errors />
-
     <div class="form-group">
      <label for="login">Usuario o Email:</label>
      <input type="text" id="login" name="login" placeholder="Usuario o Email" value="{{ old('login')}}" required>
