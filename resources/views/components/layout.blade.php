@@ -8,7 +8,7 @@
  <link rel="icon" href="img/favicon.png">
  -->
  <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
- <link rel="stylesheet" href="/css/custom.css">
+ <link rel="stylesheet" href="/css/custom.min.css">
 
 @props(['title' => 'Título'])
 
