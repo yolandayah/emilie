@@ -9,8 +9,8 @@
     <x-form-errors />
 
     <div class="form-group">
-     <label for="email">Usuario o Email:</label>
-     <input type="email" id="email" name="email" placeholder="Usuario o Email" value="{{ old('email')}}" required>
+     <label for="login">Usuario o Email:</label>
+     <input type="text" id="login" name="login" placeholder="Usuario o Email" value="{{ old('login')}}" required>
     </div>
 
     <div class="form-group">

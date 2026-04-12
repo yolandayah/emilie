@@ -29,11 +29,17 @@ class AuthController extends Controller
     public function login(Request $request): RedirectResponse
     {
         $request->validate([
-            'email' => 'required|email',
+            'login' => 'required',
             'password' => 'required'
         ]);
 
-        $credentials = $request->only('email','password');
+        $login = $request->input('login');
+
+        $fieldType = filter_var($login, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
+        $credentials = [
+            $fieldType => $login,
+            'password' => $request->input('password'),
+        ];
 
         if (Auth::attempt($credentials, $request->boolean('remember'))) {
 
@@ -45,11 +51,7 @@ class AuthController extends Controller
         }
 
         return back()->withInput()
-                     ->with('error','Credenciales invalidas');
-
-        //return back()->withErrors([
-        //    'email' => 'No se encuentra el Email y/o la Contraseña.',
-        //])->onlyInput('email');
+                     ->with('error','Usuario y/o constraseña invalidas');
     }
 
     public function logout(Request $request): RedirectResponse
