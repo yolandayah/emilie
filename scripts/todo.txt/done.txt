@@ -1,0 +1,1 @@
+x 2026-04-12 agregar los SPDX
