@@ -27,13 +27,6 @@
   }
 }
 
-header nav a:hover,
-header nav a.current,
-header nav a[aria-current="page"],
-header nav a[aria-current="true"] {
-  background: var(--bg2);
-}
-
 /* Notas de mensajes */
 .danger {
   background-color: var(--msg-r);
