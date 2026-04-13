@@ -2,15 +2,13 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\SiteController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\ForcePasswordChange;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
-
+Route::get('/', [SiteController::class, 'home'])
+    ->name('home');
 
 Route::get('/login',[AuthController::class, 'showLoginForm'])
     ->name('login');
@@ -33,7 +31,7 @@ Route::middleware(['auth'])->group(function () {
     // Rutas protegidas por el cambio de password
     Route::middleware(['force.password'])->group(function () {
 
-        Route::get('/dashboard', [DashboardController::class, 'index'])
+        Route::get('/dashboard', [SiteController::class, 'dashboard'])
             ->name('dashboard');
 
         Route::resource('/users', UserController::class)

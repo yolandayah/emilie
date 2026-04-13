@@ -1,18 +1,17 @@
 <?php
-// SPDX-License-Identifier: GPL-3.0-or-later
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
+//use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
-use Session;
-use URL;
+//use Session;
+//use URL;
 
-class DashboardController extends Controller
+class SiteController extends Controller
 {
-    public function index(): View|RedirectResponse
+    //public function dashboard(): View|RedirectResponse
+    public function dashboard(): View
     {
         /*
         if ( ! Auth::check() ) {
@@ -24,5 +23,10 @@ class DashboardController extends Controller
         }
         */
         return view('dashboard');
+    }
+
+    public function home(): View
+    {
+        return view('home');
     }
 }
