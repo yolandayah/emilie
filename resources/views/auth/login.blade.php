@@ -1,4 +1,4 @@
-<x-layout title="Inicio de sesión">
+<x-layout title="Inicio de sesión" view="login">
 
 <div class="to-center-container">
 <div class="form-container">

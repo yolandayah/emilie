@@ -1,4 +1,4 @@
-<x-layout title="Panel de información">
+<x-layout title="Panel de información" view="dashboard">
 
 <h1>Bienvenido {{ Auth::user()->name }} al sistema</h1>
 

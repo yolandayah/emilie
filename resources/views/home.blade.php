@@ -1,4 +1,4 @@
-<x-layout title="Bienvenidos">
+<x-layout title="Bienvenidos" view="home">
 
 <div>
 @auth

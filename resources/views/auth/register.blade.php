@@ -1,4 +1,4 @@
-<x-layout title="Registro de usuario">
+<x-layout title="Registro de usuario" view="register">
 
 <div class="to-center-container">
 <div class="form-container">
