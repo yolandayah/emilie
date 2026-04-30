@@ -1,15 +1,21 @@
+
+@props(['view' => 'home'])
+
 <div class="topnav" id="myTopnav">
-  <a class="active" href="{{ route('home') }}">Inicio</a>
+  <a {{ $view == 'home' ? 'class=active': '' }} href="{{ route('home') }}">Inicio</a>
+
 @auth
-  <a href="{{ route('dashboard') }}">Dashboard</a>
+  <a {{ $view == 'dashboard' ? 'class=active':'' }} href="{{ route('dashboard') }}">Dashboard</a>
+
   <form class="form-logout" method="POST" action="{{ route('logout') }}">
 	@csrf
     <button class="btnmenu" type="submit">Logout</button>
   </form>
 @else
-  <a href="{{ route('register') }}">Registrate</a>
-  <a href="{{ route('login') }}">Inicia sesión</a>
+  <a {{ $view == 'register' ? 'class=active':'' }} href="{{ route('register') }}">Registrate</a>
+  <a {{ $view == 'login' ? 'class=active':'' }} href="{{ route('login') }}">Inicia sesión</a>
 @endauth
+<!--
   <a href="#news">News</a>
   <a href="#contact">Contact</a>
   <div class="dropdown">
@@ -23,7 +29,8 @@
     </div>
   </div>
   <a href="#about">About</a>
-  <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+-->
+  <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="topnavResponsive()">&#9776;</a>
 </div>
 <!--
 <div id="navbar">

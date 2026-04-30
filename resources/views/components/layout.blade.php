@@ -13,15 +13,15 @@
  <link rel="icon" href="img/favicon.png">
  -->
 
-@props(['title' => 'Título'])
+@props(['title' => 'Título', 'view' => 'home'])
 
  <title>{{ config('app.name', 'Emilie') }} - {{ $title }}</title>
 
 </head>
 <body>
  <header>
-  <h1>{{ $title}}</h1>
- <x-menu/>
+  <h1>{{ $title }}</h1>
+ <x-menu view="{{ $view }}"/>
  </header>
  <main>
 @if (session('error'))
@@ -43,7 +43,7 @@
   <p>&copy; 2026 Mi Sitio Web</p>
  </footer>
 <script>
-function myFunction() {
+function topnavResponsive() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
     x.className += " responsive";
