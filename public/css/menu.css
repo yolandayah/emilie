@@ -64,9 +64,6 @@ a.active {
   margin: 0;
 }
 
-/*
-  position: absolute;
-*/
 .dropdown-content {
   display: none;
   position: absolute;
