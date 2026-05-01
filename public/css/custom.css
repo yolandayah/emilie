@@ -98,3 +98,8 @@ div.warning {
   font-size: 14px;
   color: var(--text);
 }
+
+tr:nth-child(even) {
+  /* Set every other cell slightly darker. Improves readability. */
+  background-color: var(--bg2);
+}
