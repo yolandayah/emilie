@@ -6,15 +6,15 @@
 
     @csrf
 
-    <p>
+    <div class="warning"><p><strong>¡Advertencia!</strong>:
       Por seguridad, debes cambiar tu contraseña.
-    </p>
+    </p></div>
 
     <div class="form-group">
      <label for="password">Nueva contraseña:</label>
      <input type="password" id="password" name="password" placeholder="Contraseña" required>
     @error('password')
-        <span role="alert">{{ $message }}</span>
+        <div class="danger"><p><strong>¡Error!</strong>: {{ $message }}</p></div>
     @enderror
     </div>
 
