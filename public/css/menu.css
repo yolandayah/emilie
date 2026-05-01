@@ -1,20 +1,6 @@
-/* Remove all styles from simple.css */
-header div,
-header div a,
-header div div,
-header div div button,
-header nav,
-header nav a,
-header nav a:visited,
-header nav a:hover,
-header nav a.current,
-header nav a[aria-current="page"],
-header nav a[aria-current="true"] {
-    all:revert;
-}
-
+/* Remove styles from simple.css */
 body > header {
-  padding: 0 0.5rem 0 0.5rem;
+  padding: 0;
 }
 
 /* Menu */
