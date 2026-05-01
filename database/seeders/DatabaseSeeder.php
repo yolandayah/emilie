@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\App;
 
 class DatabaseSeeder extends Seeder
 {
@@ -27,6 +28,9 @@ class DatabaseSeeder extends Seeder
 
         $user->assignRole('Admin');;
 
-        User::factory()->count(30)->create();
+        if (App::environment('local')) {
+            // Solo en ambiente de desarrollo creamos los ejemplos
+            User::factory()->count(50)->create();
+        }
     }
 }
