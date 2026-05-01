@@ -1,3 +1,16 @@
+/* Global variables. */
+:root {
+  /* Default (light) theme */
+  --bg-menu: #ffffff;
+}
+
+/* Dark theme */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-menu: #333;
+  }
+}
+
 /* Remove styles from simple.css */
 body > header {
   padding: 0;
@@ -7,22 +20,22 @@ body > header {
 .topnav {
   top: 0;
   overflow: hidden;
-  background-color: #333;
+  background-color: var(--bg-menu);
 }
 
 .topnav a {
   float: left;
   display: block;
-  color: #f2f2f2;
+  color: var(--text);
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
 }
 
-.active {
-  background-color: #04AA6D;
-  color: white;
+a.active {
+  background-color: var(--accent);
+  color: var(--accent-text);
 }
 
 .form-logout {
@@ -39,11 +52,12 @@ body > header {
   overflow: hidden;
 }
 
-.dropdown .dropbtn {
+.dropdown .dropbtn,
+.form-logout .dropbtn {
   font-size: 17px;
   border: none;
   outline: none;
-  color: white;
+  color: var(--text);
   padding: 14px 16px;
   background-color: inherit;
   font-family: inherit;
@@ -71,9 +85,11 @@ body > header {
   text-align: left;
 }
 
-.topnav a:hover, .dropdown:hover .dropbtn {
-  background-color: #555;
-  color: white;
+.topnav a:hover,
+.dropdown:hover .dropbtn,
+.form-logout .dropbtn:hover {
+  background-color: var(--accent-hover);
+  color: var(--accent-text);
 }
 
 .dropdown-content a:hover {

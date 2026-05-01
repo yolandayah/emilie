@@ -9,7 +9,7 @@
 
   <form class="form-logout" method="POST" action="{{ route('logout') }}">
 	@csrf
-    <button class="btnmenu" type="submit">Logout</button>
+    <button class="dropbtn" type="submit">Salir</button>
   </form>
 @else
   <a {{ $view == 'register' ? 'class=active':'' }} href="{{ route('register') }}">Registrate</a>
@@ -19,9 +19,7 @@
   <a href="#news">News</a>
   <a href="#contact">Contact</a>
   <div class="dropdown">
-    <button class="dropbtn">Dropdown
-      <i class="fa fa-caret-down"></i>
-    </button>
+    <button class="dropbtn">Dropdown &#11206</button>
     <div class="dropdown-content">
       <a href="#">Link 1</a>
       <a href="#">Link 2</a>
