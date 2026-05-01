@@ -16,8 +16,8 @@
  <td>{{ $user->name }}</td>
  <td>{{ $user->email }}</td>
 </tr>
-<tr>
 @empty
+<tr>
 <td colspan="3">
 No hay usuarios registrados
 </td>
