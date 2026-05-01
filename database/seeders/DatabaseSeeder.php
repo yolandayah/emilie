@@ -26,5 +26,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $user->assignRole('Admin');;
+
+        User::factory()->count(30)->create();
     }
 }

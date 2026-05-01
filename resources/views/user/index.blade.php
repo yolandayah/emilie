@@ -18,7 +18,7 @@
 </tr>
 <tr>
 @empty
-<td colspan=3>
+<td colspan="3">
 No hay usuarios registrados
 </td>
 </tr>
