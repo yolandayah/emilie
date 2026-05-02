@@ -1,7 +1,7 @@
-<x-layout title="Lista de usuarios" view="user">
+<x-layout title="Lista de usuarios" view="user" conTabla=true>
 <h1>Lista de usuarios</h1>
 
-<table>
+<table id="myTable" class="display">
 <thead>
 <tr>
  <th>Usuario</th>
