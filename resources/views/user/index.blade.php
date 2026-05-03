@@ -1,6 +1,6 @@
 <x-layout title="Lista de usuarios" view="user" conTabla=true>
 <h1>Lista de usuarios</h1>
-
+{{ $users->links() }}
 <table id="myTable" class="display">
 <thead>
 <tr>
@@ -25,6 +25,5 @@ No hay usuarios registrados
 @endforelse
 </tbody>
 </table>
-
 </x-layout>
 <!-- vi: set filetype=php: -->
