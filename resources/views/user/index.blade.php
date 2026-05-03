@@ -1,5 +1,4 @@
 <x-layout title="Lista de usuarios" view="user" conTabla=true>
-<h1>Lista de usuarios</h1>
 {{ $users->links() }}
 <table id="myTable" class="display">
 <thead>
@@ -7,6 +6,7 @@
  <th>Usuario</th>
  <th>Nombre</th>
  <th>Email</th>
+ <th></th>
 </tr>
 </thead>
 <tbody>
@@ -15,6 +15,7 @@
  <td>{{ $user->username }}</td>
  <td>{{ $user->name }}</td>
  <td>{{ $user->email }}</td>
+ <td><a class="button" href="{{ route('admin.user.edit', $user) }}">Editar</a></td>
 </tr>
 @empty
 <tr>
