@@ -30,6 +30,7 @@ fi
 
 CSS=$(ls ${DIRECTORY}/public/css)
 JS=$(ls ${DIRECTORY}/public/js/*.js)
+JSON=$(ls ${DIRECTORY}/public/js/*.json)
 
 for f in $CSS
 do
@@ -53,6 +54,19 @@ do
         *)
             filename=${f%*.js}
             $MJS $f > ${filename}.min.js
+            ;;
+    esac
+done
+
+for f in $JSON
+do
+    case $f in
+        *"min"*)
+            continue
+            ;;
+        *)
+            filename=${f%*.json}
+            $MJS $f > ${filename}.min.json
             ;;
     esac
 done
