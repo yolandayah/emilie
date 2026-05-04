@@ -1,5 +1,5 @@
 <x-layout title="Lista de usuarios" view="user" conTabla=true>
-{{ $users->links() }}
+{{ $users->withQueryString()->links() }}
 <table id="myTable" class="display">
 <thead>
 <tr>
