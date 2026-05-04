@@ -59,7 +59,8 @@ function initTable() {
  var table = new DataTable('#myTable',{
   language: {
    url: '/js/es-MX.min.json',
-  }
+  },
+  responsive: true,
  });
 }
 $(document).ready( initTable() );
