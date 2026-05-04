@@ -30,7 +30,7 @@ class DatabaseSeeder extends Seeder
 
         if (App::environment('local')) {
             // Solo en ambiente de desarrollo creamos los ejemplos
-            User::factory()->count(200)->create();
+            User::factory()->count(180)->create();
         }
     }
 }
