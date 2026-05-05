@@ -11,13 +11,18 @@ class RoleSeeder extends Seeder
 {
     public function run(): void
     {
+        // Reset cached roles and permissions
+        app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
+
         $role_admin = Role::create(['name' => 'Admin']);
         $role_maestro = Role::create(['name' => 'Maestro']);
         $role_alumno = Role::create(['name' => 'Alumno']);
 
         #TODO: Los permisos de la aplicación
         $uer = Permission::create(['name' => 'user.edit.roles']);
+        $ue  = Permission::create(['name' => 'user.edit']);
 
-        $role_admin->givePermissionTo($uer);
+        $role_admin->givePermissionTo([$ue,$uer]);
+        $role_maestro->givePermissionTo($ue);
     }
 }
