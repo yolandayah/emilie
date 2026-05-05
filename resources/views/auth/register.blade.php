@@ -8,7 +8,9 @@
 
     <div class="form-group">
      <label for="name">Nombre de usuario:</label>
-     <input type="text" id="username" name="username" placeholder="Nombre de usuario" value="{{ old('username')}}" required>
+     <input type="text" id="username" name="username"
+      oninput="this.value = this.value.toLowerCase()"
+      placeholder="Nombre de usuario" value="{{ old('username')}}" required>
     @error('username')
       <div class="warning"><p><strong>¡Advertencia!</strong>:
       {{ $message }}

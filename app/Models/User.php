@@ -21,6 +21,13 @@ class User extends Authenticatable
     use HasFactory, Notifiable;
     use HasRoles;
 
+    protected function username(): Attribute
+    {
+        return Attribute::make(
+            set: fn (string $value) => mb_convert_case($value, MB_CASE_LOWER),
+        );
+    }
+
     protected function name(): Attribute
     {
         return Attribute::make(
