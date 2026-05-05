@@ -75,6 +75,7 @@ class UserController extends Controller
         $dbUser->email = $request->email;
         if ($request->password) {
             $dbUser->password = $request->password;
+            $dbUser->force_password_change = true;
         }
         $dbUser->save();
 
