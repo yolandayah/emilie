@@ -65,6 +65,7 @@
     @endcan
 
     <button type="submit">Guardar</button>
+    <a class="button" href="{{ route('admin.user.index') }}">Cancelar</a>
   </form>
 </div>
 </div>
