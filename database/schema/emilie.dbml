@@ -1,0 +1,39 @@
+// Use DBML to define your database structure
+// Docs: https://dbml.dbdiagram.io/docs
+// https://dbdiagram.io/
+
+Table users {
+  id integer [primary key]
+  username varchar
+  email varchar
+  name varchar
+  last_name varchar
+  password varchar
+}
+
+Table grupos {
+  id integer [primary key]
+  asignatura_id integer [not null]
+  users_id integer [not null, note: 'maestro id']
+  archivar bool
+  nombre varchar
+}
+
+Table listas {
+  id integer [primary key]
+  user_id integer [not null]
+  grupos_id integer [not null]
+}
+
+Table asignatura {
+  id integer [primary key]
+  nombre varchar
+}
+
+Ref: "users"."id" < "listas"."user_id"
+
+Ref: "grupos"."id" < "listas"."grupos_id"
+
+Ref: "asignatura"."id" < "grupos"."asignatura_id"
+
+Ref: "users"."id" < "grupos"."users_id"
