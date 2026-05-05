@@ -27,6 +27,16 @@
     </div>
 
     <div class="form-group">
+     <label for="last_name">Apellidos:</label>
+     <input type="text" id="last_name" name="last_name" placeholder="Apellidos" value="{{ old('last_name')}}" required>
+    @error('last_name')
+      <div class="warning"><p><strong>¡Advertencia!</strong>:
+      {{ $message }}
+      </p></div>
+    @enderror
+    </div>
+
+    <div class="form-group">
      <label for="email">Email:</label>
      <input type="email" id="email" name="email" placeholder="Email" value="{{ old('email')}}" required>
     @error('email')

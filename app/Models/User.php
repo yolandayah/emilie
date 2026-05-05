@@ -10,15 +10,30 @@ use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Spatie\Permission\Traits\HasRoles;
 
-#[Fillable(['username', 'email', 'name', 'password'])]
+#[Fillable(['username', 'email', 'name', 'last_name', 'password'])]
 #[Hidden(['password', 'remember_token'])]
 class User extends Authenticatable
 {
     /** @use HasFactory<UserFactory> */
     use HasFactory, Notifiable;
     use HasRoles;
+
+    protected function name(): Attribute
+    {
+        return Attribute::make(
+            set: fn (string $value) => mb_convert_case($value, MB_CASE_TITLE),
+        );
+    }
+
+    protected function lastName(): Attribute
+    {
+        return Attribute::make(
+            set: fn (string $value) => mb_convert_case($value, MB_CASE_TITLE),
+        );
+    }
 
     /**
      * Get the attributes that should be cast.

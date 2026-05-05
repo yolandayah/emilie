@@ -21,7 +21,8 @@ class DatabaseSeeder extends Seeder
         $user = User::factory()->create([
             'username' => 'admin',
             'email' => 'usuario@administrador.com',
-            'name' => 'Usuario Administrador',
+            'name' => 'usuario',
+            'last_name' => 'administrador',
             'password' => 'administrador',
             'force_password_change' => true
         ]);
@@ -30,7 +31,9 @@ class DatabaseSeeder extends Seeder
 
         if (App::environment('local')) {
             // Solo en ambiente de desarrollo creamos los ejemplos
-            User::factory()->count(180)->create();
+            User::factory()
+                ->count(180)
+                ->create();
         }
     }
 }

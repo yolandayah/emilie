@@ -33,6 +33,7 @@ class UserController extends Controller
         $userData = $request->validate([
             'username' =>  'required|string|max:255',
             'name' =>  'required|string|max:255',
+            'last_name' =>  'required|string|max:255',
             'email' => 'required|string|max:255|email',
         ]);
 
@@ -72,6 +73,7 @@ class UserController extends Controller
 
         $dbUser->username = $request->username;
         $dbUser->name = $request->name;
+        $dbUser->last_name = $request->last_name;
         $dbUser->email = $request->email;
         if ($request->password) {
             $dbUser->password = $request->password;

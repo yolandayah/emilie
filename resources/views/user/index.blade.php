@@ -5,6 +5,7 @@
 <tr>
  <th>Usuario</th>
  <th>Nombre</th>
+ <th>Apellido</th>
  <th>Email</th>
  <th></th>
 </tr>
@@ -14,12 +15,13 @@
 <tr>
  <td>{{ $user->username }}</td>
  <td>{{ $user->name }}</td>
+ <td>{{ $user->last_name }}</td>
  <td>{{ $user->email }}</td>
  <td><a class="button" href="{{ route('admin.user.edit', $user) }}">Editar</a></td>
 </tr>
 @empty
 <tr>
-<td colspan="4">
+<td colspan="5">
 No hay usuarios registrados
 </td>
 </tr>
