@@ -7,7 +7,7 @@
  <meta name="viewport" content="width=device-width, initial-scale=1" />
  <link rel="stylesheet" href="/css/simple.min.css">
 @if ($conTabla)
- <link rel="stylesheet" href="/css/dataTables.dataTables.min.css">
+ <link rel="stylesheet" href="/css/datatables.min.css">
 @endif
  <link rel="stylesheet" href="/css/custom.min.css">
  <link rel="stylesheet" href="/css/menu.min.css">
@@ -52,8 +52,7 @@ function topnavResponsive() {
 }
 </script>
 @if ($conTabla)
-<script src="/js/jquery-3.7.1.min.js"></script>
-<script src="/js/dataTables.min.js"></script>
+<script src="/js/datatables.min.js"></script>
 <script>
 function initTable() {
  var table = new DataTable('#myTable',{
