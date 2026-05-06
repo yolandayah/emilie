@@ -19,9 +19,9 @@ class RoleSeeder extends Seeder
 
         #TODO: Los permisos de la aplicación
         $uer = Permission::create(['name' => 'user.edit.roles']);
-        $ue  = Permission::create(['name' => 'user.edit']);
+        $ul  = Permission::create(['name' => 'user.index']);
 
-        $role_admin->givePermissionTo([$ue,$uer]);
-        $role_maestro->givePermissionTo($ue);
+        $role_admin->givePermissionTo([$ul,$uer]);
+        $role_maestro->givePermissionTo($ul);
     }
 }

@@ -5,6 +5,16 @@
   <a {{ $view == 'home' ? 'class=active' : '' }} href="{{ route('home') }}">Inicio</a>
 @auth
   <a {{ $view == 'dashboard' ? 'class=active' : '' }} href="{{ route('dashboard') }}">Dashboard</a>
+
+  @can('user.index')
+  <a {{ $view == 'user' ? 'class=active' : '' }} href="{{ route('admin.user.index') }}">Usuarios</a>
+  @endcan
+
+  <form class="form-logout" method="POST" action="{{ route('logout') }}">
+	@csrf
+    <button class="dropbtn" type="submit">Salir</button>
+  </form>
+<!--
   <div class="dropdown">
     <button class="dropbtn {{ $view == 'user' ? 'active': '' }}">Usuarios &#11206</button>
     <div class="dropdown-content">
@@ -13,12 +23,7 @@
       <a href="#">Link 3</a>
     </div>
   </div>
-
-  <form class="form-logout" method="POST" action="{{ route('logout') }}">
-	@csrf
-    <button class="dropbtn" type="submit">Salir</button>
-  </form>
-
+-->
 @else
   <a {{ $view == 'register' ? 'class=active' : '' }} href="{{ route('register') }}">Registrate</a>
   <a {{ $view == 'login' ? 'class=active' : '' }} href="{{ route('login') }}">Inicia sesión</a>
