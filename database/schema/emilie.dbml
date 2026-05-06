@@ -19,21 +19,24 @@ Table grupos {
   nombre varchar
 }
 
-Table listas {
+Table grupo_user {
   id integer [primary key]
   user_id integer [not null]
-  grupos_id integer [not null]
+  grupo_id integer [not null]
 }
 
-Table asignatura {
+Table asignaturas {
   id integer [primary key]
   nombre varchar
+  indexes {
+    nombre [unique]
+  }
 }
 
-Ref: "users"."id" < "listas"."user_id"
+Ref: "users"."id" < "grupo_user"."user_id"
 
-Ref: "grupos"."id" < "listas"."grupos_id"
+Ref: "grupos"."id" < "grupo_user"."grupo_id"
 
-Ref: "asignatura"."id" < "grupos"."asignatura_id"
+Ref: "asignaturas"."id" < "grupos"."asignatura_id"
 
 Ref: "users"."id" < "grupos"."users_id"
