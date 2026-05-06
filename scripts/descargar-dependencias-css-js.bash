@@ -16,7 +16,7 @@ TMP_FILE=$(mktemp)
 
 while IFS=, read -r fecha tipo url
 do
-    if [ "$tipo" = "Tipo" ]
+    if [ "$tipo" = "Tipo" -o "$tipo" = "zip" ]
     then
         echo "$fecha,$tipo,$url" >> $TMP_FILE
         continue
