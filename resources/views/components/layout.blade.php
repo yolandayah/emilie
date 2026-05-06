@@ -9,7 +9,7 @@
 @if ($conTabla)
  <link rel="stylesheet" href="/css/datatables.min.css">
 @endif
- <link rel="stylesheet" href="/css/custom.min.css">
+ <link rel="stylesheet" href="/css/custom.css">
  <link rel="stylesheet" href="/css/menu.min.css">
  <!--
  <link rel="icon" href="img/favicon.png">

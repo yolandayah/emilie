@@ -1,6 +1,6 @@
 <x-layout title="Bienvenidos" view="home">
 
-<img src="/img/emiliedechatelet.jpg">
+<img src="/img/emiliedechatelet.jpg" class="center">
 
 <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/>10
 <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/>20
