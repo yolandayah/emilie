@@ -31,9 +31,23 @@ class DatabaseSeeder extends Seeder
 
         if (App::environment('local')) {
             // Solo en ambiente de desarrollo creamos los ejemplos
+            for ($i = 1; $i <= 3; $i++) {
+                $user = User::create([
+                    'username' => 'maestro0'."$i",
+                    'email' => 'maestro0'."$i".'@zapopan.tecmm.edu.mx',
+                    'name' => 'maestro0'."$i",
+                    'last_name' => 'de zapopan'."$i",
+                    'password' => 'maestro',
+                ]);
+                $user->assignRole('Maestro');;
+            }
+
             User::factory()
                 ->count(180)
                 ->create();
+
+            $this->call(AsignaturaSeeder::class);
+            $this->call(GrupoSeeder::class);
         }
     }
 }
