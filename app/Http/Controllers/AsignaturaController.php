@@ -8,12 +8,11 @@ use App\Models\Asignatura;
 
 class AsignaturaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        $asignaturas = Asignatura::all();
+
+        return view('grupos.index',compact('asignaturas'));
     }
 
     /**

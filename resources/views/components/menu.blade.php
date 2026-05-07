@@ -8,6 +8,7 @@
 
   @can('user.index')
   <a {{ $view == 'user' ? 'class=active' : '' }} href="{{ route('admin.user.index') }}">Usuarios</a>
+  <a {{ $view == 'grupos' ? 'class=active' : '' }} href="{{ route('admin.grupos.index') }}">Asignaturas</a>
   @endcan
 
   <form class="form-logout" method="POST" action="{{ route('logout') }}">

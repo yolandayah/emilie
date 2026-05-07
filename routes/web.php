@@ -1,6 +1,7 @@
 <?php
 // SPDX-License-Identifier: GPL-3.0-or-later
 
+use App\Http\Controllers\AsignaturaController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\UserController;
@@ -37,6 +38,10 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('/users', UserController::class)
             ->only(['index','edit','update'])
             ->names('admin.user');
+
+        Route::resource('/grupos', AsignaturaController::class)
+            ->only(['index','edit','update'])
+            ->names('admin.grupos');
     });
 
     // Rutas para realizar el cambio (Fuera del middleware de forzado)
