@@ -15,6 +15,11 @@ class AsignaturaController extends Controller
         return view('grupos.index',compact('asignaturas'));
     }
 
+    public function grupos(Asignatura $asignatura)
+    {
+        return $asignatura;
+    }
+
     /**
      * Show the form for creating a new resource.
      */

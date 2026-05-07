@@ -39,9 +39,11 @@ Route::middleware(['auth'])->group(function () {
             ->only(['index','edit','update'])
             ->names('admin.user');
 
-        Route::resource('/grupos', AsignaturaController::class)
-            ->only(['index','edit','update'])
-            ->names('admin.grupos');
+        Route::get('/asignatura', [AsignaturaController::class, 'index'])
+            ->name('grupos.index');
+
+        Route::get('/asignatura/{id}/grupos', [AsignaturaController::class, 'grupos'])
+            ->name('grupos.lista');
     });
 
     // Rutas para realizar el cambio (Fuera del middleware de forzado)
