@@ -25,7 +25,7 @@ class AsignaturaController extends Controller
      */
     public function create()
     {
-        //
+        return 'create';
     }
 
     /**
@@ -33,7 +33,6 @@ class AsignaturaController extends Controller
      */
     public function store(StoreAsignaturaRequest $request)
     {
-        //
     }
 
     /**
@@ -49,7 +48,7 @@ class AsignaturaController extends Controller
      */
     public function edit(Asignatura $asignatura)
     {
-        //
+        return $asignatura;
     }
 
     /**

@@ -42,7 +42,13 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/asignatura', [AsignaturaController::class, 'index'])
             ->name('grupos.index');
 
-        Route::get('/asignatura/{id}/grupos', [AsignaturaController::class, 'grupos'])
+        Route::get('/asignatura/create', [AsignaturaController::class, 'create'])
+            ->name('grupos.create');
+
+        Route::get('/asignatura/{asignatura}/edit', [AsignaturaController::class, 'edit'])
+            ->name('grupos.edit');
+
+        Route::get('/asignatura/{asignatura}/grupos', [AsignaturaController::class, 'grupos'])
             ->name('grupos.lista');
     });
 
