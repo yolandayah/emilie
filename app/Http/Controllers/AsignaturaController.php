@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Asignatura;
+use App\Models\Grupo;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
@@ -18,7 +19,9 @@ class AsignaturaController extends Controller
 
     public function grupos(Asignatura $asignatura)
     {
-        return $asignatura;
+        $asignatura->load('grupos.user:id,name,last_name');
+
+        return view('grupos.grupos',compact('asignatura'));
     }
 
     public function create(): View
