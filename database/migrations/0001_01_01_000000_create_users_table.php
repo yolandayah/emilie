@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('username')->unique();
             $table->string('email')->unique();
-            $table->string('name');
-            $table->string('last_name');
+            $table->string('name')->index();
+            $table->string('last_name')->index();
             $table->string('password');
             $table->timestamps();
             $table->boolean('force_password_change')->default(false);
