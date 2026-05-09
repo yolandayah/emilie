@@ -34,7 +34,7 @@
     </div>
 
     <button type="submit">Guardar</button>
-    <a class="button" href="{{ route('grupos.index') }}">Cancelar</a>
+    <a class="button" href="{{ route('grupos.lista',['asignatura'=>$asignatura->id]) }}">Cancelar</a></td>
   </form>
 </div>
 </div>
