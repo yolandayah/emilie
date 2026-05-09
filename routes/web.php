@@ -46,8 +46,14 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/asignatura', [AsignaturaController::class, 'store'])
             ->name('grupos.store');
 
+        Route::post('/asignatura/grupo', [AsignaturaController::class, 'storeGrupo'])
+            ->name('grupos.store.grupo');
+
         Route::get('/asignatura/create', [AsignaturaController::class, 'create'])
             ->name('grupos.create');
+
+        Route::get('/asignatura/{asignatura}/create', [AsignaturaController::class, 'createGrupo'])
+            ->name('grupos.create.grupo');
 
         Route::get('/asignatura/{asignatura}/edit', [AsignaturaController::class, 'edit'])
             ->name('grupos.edit');

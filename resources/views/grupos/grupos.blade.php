@@ -1,4 +1,7 @@
 <x-layout title="{{$asignatura->nombre}}" view="grupos" conTabla=true>
+<div class="align-right">
+<a class="button" href="{{ route('grupos.create.grupo',['asignatura'=>$asignatura->id]) }}">Nuevo Grupo</a>
+</div>
 <table id="myTable" class="display">
 <thead>
 <tr>

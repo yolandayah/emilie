@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-#[Fillable(['archivar', 'nombre'])]
+#[Fillable(['archivar', 'nombre', 'asignatura_id', 'user_id'])]
 class Grupo extends Model
 {
     /** @use HasFactory<\Database\Factories\GrupoFactory> */
