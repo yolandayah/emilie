@@ -20,6 +20,8 @@
 @empty
 <tr>
  <td>No hay asignaturas registradas</td>
+ <td></td>
+ <td></td>
 </tr>
 @endforelse
 </tbody>
