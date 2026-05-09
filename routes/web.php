@@ -25,6 +25,7 @@ Route::get('/register',[AuthController::class, 'showRegisterForm'])
     ->name('register');
 
 Route::post('/register', [AuthController::class, 'register'])
+    ->middleware('throttle:5,1')
     ->name('register.process');
 
 Route::middleware(['auth'])->group(function () {
@@ -42,6 +43,9 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/asignatura', [AsignaturaController::class, 'index'])
             ->name('grupos.index');
 
+        Route::post('/asignatura', [AsignaturaController::class, 'store'])
+            ->name('grupos.store');
+
         Route::get('/asignatura/create', [AsignaturaController::class, 'create'])
             ->name('grupos.create');
 
@@ -53,7 +57,9 @@ Route::middleware(['auth'])->group(function () {
     });
 
     // Rutas para realizar el cambio (Fuera del middleware de forzado)
-    Route::get('/update-password', [AuthController::class, 'showUpdatePasswordForm'])->name('password.update');
-    Route::post('/update-password', [AuthController::class, 'updatePassword'])->name('password.update.process');
+    Route::get('/update-password', [AuthController::class, 'showUpdatePasswordForm'])
+        ->name('password.update');
+    Route::post('/update-password', [AuthController::class, 'updatePassword'])
+        ->name('password.update.process');
 
 });

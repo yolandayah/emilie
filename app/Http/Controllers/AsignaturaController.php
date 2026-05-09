@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreAsignaturaRequest;
-use App\Http\Requests\UpdateAsignaturaRequest;
 use App\Models\Asignatura;
+use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
 
 class AsignaturaController extends Controller
 {
-    public function index()
+    public function index(): View
     {
         $asignaturas = Asignatura::all();
 
@@ -20,19 +21,22 @@ class AsignaturaController extends Controller
         return $asignatura;
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function create(): View
     {
-        return 'create';
+        return view('grupos.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreAsignaturaRequest $request)
+    public function store(Request $request): RedirectResponse
     {
+        $asignatura = $request->validate([
+            'nombre' =>  'required|string|max:255|unique:asignaturas',
+        ]);
+
+        Asignatura::create($asignatura);
+
+        return redirect()
+                ->route('grupos.index')
+                ->with('success','Se registro la asignatura "'.$request->nombre.'"');
     }
 
     /**
