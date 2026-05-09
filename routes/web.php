@@ -54,6 +54,9 @@ Route::middleware(['auth'])->group(function () {
 
         Route::get('/asignatura/{asignatura}/grupos', [AsignaturaController::class, 'grupos'])
             ->name('grupos.lista');
+
+        Route::get('/asignatura/{grupo}/alumnos', [AsignaturaController::class, 'alumnos'])
+            ->name('grupos.alumnos');
     });
 
     // Rutas para realizar el cambio (Fuera del middleware de forzado)

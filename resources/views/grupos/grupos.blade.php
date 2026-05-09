@@ -4,6 +4,7 @@
 <tr>
  <th>Grupos</th>
  <th>Maestro</th>
+ <th>Alumnos</th>
 </tr>
 </thead>
 <tbody>
@@ -11,10 +12,13 @@
 <tr>
  <td>{{ $grupo->nombre }}</td>
  <td>{{ $grupo->user->name }} {{ $grupo->user->last_name }}</td>
+ <td><a class="button" href="{{ route('grupos.alumnos',['grupo'=>$grupo->id]) }}">Ver</a></td>
 </tr>
 @empty
 <tr>
- <td>No hay asignaturas registradas</td>
+ <td>No hay grupos registrados</td>
+ <td></td>
+ <td></td>
 </tr>
 @endforelse
 </tbody>
