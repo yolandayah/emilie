@@ -15,12 +15,10 @@ class Grupo extends Model
     /** @use HasFactory<\Database\Factories\GrupoFactory> */
     use HasFactory;
 
-    /* TODO: Review relationship
     public function users(): BelongsToMany
     {
-        return $this->belongsToMany(User::class)->withTimestamps();
+        return $this->belongsToMany(User::class);
     }
-     */
 
     public function user(): BelongsTo
     {
