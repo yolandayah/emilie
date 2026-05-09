@@ -26,7 +26,8 @@ class AsignaturaController extends Controller
 
     public function alumnos(Grupo $grupo)
     {
-        return $grupo;
+        $users = $grupo->users;
+        return view('grupos.alumnos',compact('users','grupo'));
     }
 
     public function create(): View
