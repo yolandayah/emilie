@@ -7,7 +7,7 @@
 <tr>
  <th>Asignatura</th>
  <th>Grupos</th>
- <th>Editar</th>
+ <th></th>
 </tr>
 </thead>
 <tbody>
@@ -15,7 +15,8 @@
 <tr>
  <td>{{ $asignatura->nombre }}</td>
  <td><a class="button" href="{{ route('grupos.lista',['asignatura'=>$asignatura->id]) }}">Ver</a></td>
- <td><a class="button" href="{{ route('grupos.edit',['asignatura'=>$asignatura->id]) }}">Editar</a></td>
+ <td><a class="button" href="{{ route('grupos.edit',['asignatura'=>$asignatura->id]) }}">Editar</a>
+ <a class="button" href="{{ route('grupos.edit',['asignatura'=>$asignatura->id]) }}">Borrar</a></td>
 </tr>
 @empty
 <tr>
