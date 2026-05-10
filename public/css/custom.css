@@ -10,6 +10,7 @@
   --msg-g: #ddffdd;
   --msg-b: #e7f3fe;
   --msg-y: #ffffcc;
+  --table-hover: var(--msg-b);
 }
 
 /* Dark theme */
@@ -24,6 +25,7 @@
     --msg-g: #113311;
     --msg-b: #254142;
     --msg-y: #333300;
+    --table-hover: var(--msg-y);
   }
 }
 
@@ -35,7 +37,7 @@ table.dataTable > tbody > tr:nth-child(even)  {
   background-color: var(--bg2);
 }
 table.dataTable tr:hover td {
-  background: var(--msg-b);
+  background: var(--table-hover);
 }
 
 body {
