@@ -49,7 +49,7 @@ class AsignaturaController extends Controller
     public function storeGrupo(Request $request): RedirectResponse
     {
         $request->validate([
-            'nombre' =>  'required|string|max:255|unique:grupos',
+            'nombre' =>  'required|string|max:255',
             'asignatura_id' => 'required|integer',
             'user_id' => 'required|integer',
         ]);

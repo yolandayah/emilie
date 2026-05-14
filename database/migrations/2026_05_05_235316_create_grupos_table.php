@@ -25,8 +25,7 @@ return new class extends Migration
             $table->boolean('archivar')
                   ->default(false);
 
-            $table->string('nombre')
-                  ->unique();
+            $table->string('nombre');
 
             $table->timestamps();
         });
