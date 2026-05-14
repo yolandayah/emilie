@@ -28,6 +28,7 @@
  <td>No hay grupos registrados</td>
  <td></td>
  <td></td>
+ <td></td>
 </tr>
 @endforelse
 </tbody>
