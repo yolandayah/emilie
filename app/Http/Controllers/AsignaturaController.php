@@ -103,11 +103,15 @@ class AsignaturaController extends Controller
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Asignatura $asignatura)
+    public function destroy(Asignatura $asignatura): RedirectResponse
     {
-        //
+        if ( $asignatura->delete() ) {
+            return redirect()
+                    ->route('grupos.index')
+                    ->with('success','Se elimino la asignatura "'.$asignatura->nombre.'"');
+        }
+        return redirect()
+                ->route('grupos.index')
+                ->with('error','Hubo un error a la hora de eliminar la asignatura "'.$asignatura->nombre.'"');
     }
 }

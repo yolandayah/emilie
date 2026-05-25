@@ -63,6 +63,9 @@ Route::middleware(['auth'])->group(function () {
 
         Route::get('/asignatura/{grupo}/alumnos', [AsignaturaController::class, 'alumnos'])
             ->name('grupos.alumnos');
+
+        Route::delete('/asignatura/{asignatura}', [AsignaturaController::class, 'destroy'])
+            ->name('grupos.borrar');
     });
 
     // Rutas para realizar el cambio (Fuera del middleware de forzado)
