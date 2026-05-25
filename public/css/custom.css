@@ -183,6 +183,57 @@ div.warning {
   display: table;
 }
 
+/* El contenedor que agrupa los recuadros */
+.contenedor-tarjetas {
+  display: flex;
+  gap: 20px; /* Espacio de separación entre cada recuadro */
+  justify-content: center; /* Centra los recuadros en la pantalla */
+  flex-wrap: wrap; /* Si no caben en la pantalla, se bajan automáticamente (¡básico para celulares!) */
+  padding: 20px;
+}
+
+/* El diseño individual de cada recuadro */
+.tarjeta {
+  background-color: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px;
+  width: 280px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s;
+
+  /* --- TRUCO DE ALINEACIÓN --- */
+  display: flex;
+  flex-direction: column; /* Alinea los elementos hacia abajo */
+}
+
+.tarjeta:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.tarjeta h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.tarjeta p {
+  color: var(--text-light);
+  font-size: 14px;
+  line-height: 1.5;
+  margin-top: 0;
+  margin-bottom: 20px; /* Espacio antes del botón */
+}
+
+.btn-tarjeta {
+  border: none;
+  padding: 10px 15px;
+  font-weight: bold;
+
+  /* El truco final: empuja el botón al fondo de la tarjeta */
+  margin-top: auto;
+}
+
 @media screen and (max-width: 600px) {
  .modal-content {
    width: 85%;
