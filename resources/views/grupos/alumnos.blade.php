@@ -22,6 +22,12 @@
 </tr>
 @endforelse
 </tbody>
+<tfoot>
+<tr>
+ <th>Nombre</th>
+ <th></th>
+</tr>
+</tfoot>
 </table>
 </x-layout>
 <!-- vi: set filetype=php: -->

@@ -32,6 +32,14 @@
 </tr>
 @endforelse
 </tbody>
+<tfoot>
+<tr>
+ <th>Grupos</th>
+ <th>Maestro</th>
+ <th>Alumnos</th>
+ <th></th>
+</tr>
+</tfoot>
 </table>
 </x-layout>
 <!-- vi: set filetype=php: -->

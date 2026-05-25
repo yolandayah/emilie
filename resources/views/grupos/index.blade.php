@@ -28,13 +28,20 @@
 </tr>
 @endforelse
 </tbody>
+<tfoot>
+<tr>
+ <th>Asignatura</th>
+ <th>Grupos</th>
+ <th></th>
+</tr>
+</tfoot>
 </table>
 <div id="mdlBorrar" class="modal">
 <span onclick="document.getElementById('mdlBorrar').style.display='none'"
 class="modal-close" title="Close Modal">×</span>
   <form id="frmBorrar" method="POST" action="" class="modal-content">
     @csrf
-	@method('DELETE')
+    @method('DELETE')
     <input type="hidden" id="txtAction" value="{{ route('grupos.borrar',['asignatura'=>0]) }}" autocomplete="off">
     <div class="modal-container">
       <h1>Borrar <span id="txtAsignatura"></span></h1>
