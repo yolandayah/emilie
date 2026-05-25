@@ -27,6 +27,10 @@ class GrupoSeeder extends Seeder
             for ($u = 0; $u < 10; $u++) {
                 $userIds[] = mt_rand(5,180);
             }
+            // Alumno de Prueba
+            if ($i < 10) {
+                $userIds[] = 5;
+            }
             $g->users()->attach($userIds);
         }
     }

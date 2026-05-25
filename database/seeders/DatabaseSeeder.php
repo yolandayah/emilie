@@ -42,6 +42,15 @@ class DatabaseSeeder extends Seeder
                 $user->assignRole('Maestro');;
             }
 
+            // id -> 5
+            $user = User::create([
+                'username' => 'alumno00',
+                'email' => 'alumno00@zapopan.tecmm.edu.mx',
+                'name' => 'Alumno',
+                'last_name' => 'de Prueba',
+                'password' => 'alumno',
+            ]);
+
             User::factory()
                 ->count(180)
                 ->create();
