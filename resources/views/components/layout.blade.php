@@ -35,7 +35,7 @@
 <div class="warning"><p><strong>¡Advertencia!</strong>: {{ session('warning') }}</p></div>
 @endif
 
-  {{ $slot }}
+{{ $slot }}
 
  </main>
  <footer>
