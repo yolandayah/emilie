@@ -25,7 +25,7 @@ class GrupoSeeder extends Seeder
             ]);
             $userIds = [];
             for ($u = 0; $u < 10; $u++) {
-                $userIds[] = mt_rand(5,180);
+                $userIds[] = mt_rand(6,185);
             }
             // Alumno de Prueba
             if ($i < 10) {
