@@ -10,7 +10,8 @@ class GrupoSeeder extends Seeder
 {
     public function run(): void
     {
-        for ($i = 1; $i <= 24; $i++) {
+       if (App::environment('local')) {
+         for ($i = 1; $i <= 24; $i++) {
             $uid = 1;
             if ($i>12) {
                 $uid = ($i+1) % 3 + 2;
@@ -32,6 +33,7 @@ class GrupoSeeder extends Seeder
                 $userIds[] = 5;
             }
             $g->users()->attach($userIds);
-        }
+         }
+       } // if (App::environment('local'))
     }
 }

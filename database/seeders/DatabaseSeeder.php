@@ -54,9 +54,9 @@ class DatabaseSeeder extends Seeder
             User::factory()
                 ->count(180)
                 ->create();
-
-            $this->call(AsignaturaSeeder::class);
-            $this->call(GrupoSeeder::class);
         }
+
+        $this->call(AsignaturaSeeder::class);
+        $this->call(GrupoSeeder::class);
     }
 }
