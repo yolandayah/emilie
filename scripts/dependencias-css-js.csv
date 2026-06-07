@@ -3,3 +3,4 @@ Fecha de descarga,Tipo,URL
 2026-05-03,js,https://cdn.datatables.net/plug-ins/2.3.8/i18n/es-MX.json
 0,zip,https://datatables.net/download/builder?dt/jq-3.7.0/dt-2.3.8/r-3.0.8
 0,js,https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js
+0,js,https://unpkg.com/mathjs@15.2.0/lib/browser/math.js
