@@ -1,9 +1,9 @@
 <?php
 
+use App\Http\Middleware\ForcePasswordChange;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
-use App\Http\Middleware\ForcePasswordChange;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -14,9 +14,9 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware): void {
 
         $middleware->append(ForcePasswordChange::class)
-                   ->alias([
-                       'force.password' => \App\Http\Middleware\ForcePasswordChange::class,
-                   ]);
+            ->alias([
+                'force.password' => ForcePasswordChange::class,
+            ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

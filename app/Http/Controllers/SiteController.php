@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\View\View;
-use Illuminate\Support\Facades\Auth;
 
 class SiteController extends Controller
 {
@@ -15,7 +14,7 @@ class SiteController extends Controller
 
         $grupos->load('asignatura');
 
-        return view('dashboard',compact('grupos'));
+        return view('dashboard', compact('grupos'));
     }
 
     public function home(): View

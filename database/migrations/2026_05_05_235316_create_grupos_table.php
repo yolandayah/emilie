@@ -15,15 +15,15 @@ return new class extends Migration
             $table->id();
 
             $table->foreignId('asignatura_id')
-                  ->constrained()
-                  ->onDelete('cascade');
+                ->constrained()
+                ->onDelete('cascade');
 
             $table->foreignId('user_id')
-                  ->constrained()
-                  ->onDelete('cascade');
+                ->constrained()
+                ->onDelete('cascade');
 
             $table->boolean('archivar')
-                  ->default(false);
+                ->default(false);
 
             $table->string('nombre');
 

@@ -1,4 +1,5 @@
 <?php
+
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 namespace App\Http\Middleware;
@@ -16,16 +17,16 @@ class ForcePasswordChange
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (   auth()->check()
-            && auth()->user()->force_password_change)
-        {
+        if (auth()->check()
+            && auth()->user()->force_password_change) {
             // Avoid infinite redirect loop by allowing access
             // to the change password page
-            if (!$request->is('update-password*') && !$request->is('logout')) {
+            if (! $request->is('update-password*') && ! $request->is('logout')) {
                 return redirect()
-                        ->route('password.update');
+                    ->route('password.update');
             }
         }
+
         return $next($request);
     }
 }

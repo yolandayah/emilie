@@ -24,10 +24,10 @@ class DatabaseSeeder extends Seeder
             'name' => 'usuario',
             'last_name' => 'administrador',
             'password' => 'administrador',
-            'force_password_change' => true
+            'force_password_change' => true,
         ]);
 
-        $user->assignRole('Admin');;
+        $user->assignRole('Admin');
 
         if (App::environment('local')) {
             // Solo en ambiente de desarrollo creamos los ejemplos
@@ -39,7 +39,7 @@ class DatabaseSeeder extends Seeder
                     'last_name' => 'de zapopan'."$i",
                     'password' => 'maestro',
                 ]);
-                $user->assignRole('Maestro');;
+                $user->assignRole('Maestro');
             }
 
             // id -> 5

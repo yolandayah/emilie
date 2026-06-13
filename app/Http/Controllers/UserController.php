@@ -1,4 +1,5 @@
 <?php
+
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 namespace App\Http\Controllers;
@@ -14,32 +15,32 @@ class UserController extends Controller
     public function index(): View
     {
         $users = User::orderBy('username')
-                     ->paginate(150)
-                     ->withQueryString();
+            ->paginate(150)
+            ->withQueryString();
 
         return view('user.index', compact('users'));
     }
 
     public function edit(string $id)
     {
-        $user  = User::find($id);
+        $user = User::find($id);
         $roles = Role::all();
 
-        return view('user.edit', compact('user','roles'));
+        return view('user.edit', compact('user', 'roles'));
     }
 
     public function update(Request $request, string $id)
     {
         $userData = $request->validate([
-            'username' =>  'required|string|lowercase|max:255',
-            'name' =>  'required|string|max:255',
-            'last_name' =>  'required|string|max:255',
+            'username' => 'required|string|lowercase|max:255',
+            'name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
             'email' => 'required|string|max:255|email',
         ]);
 
         if ($request->password) {
             $request->validate([
-                'password' => 'required|string|min:6|confirmed'
+                'password' => 'required|string|min:6|confirmed',
             ]);
         }
 
@@ -47,27 +48,27 @@ class UserController extends Controller
 
         if ($dbUser->username != $request->username) {
 
-            $otherUser= User::where('username', $request->username)
-                            ->first();
+            $otherUser = User::where('username', $request->username)
+                ->first();
 
             if ($otherUser) {
                 return redirect()
-                        ->back()
-                        ->withInput()
-                        ->withErrors(['username' => 'Nombre de usuario invalido o ya existe.']);
+                    ->back()
+                    ->withInput()
+                    ->withErrors(['username' => 'Nombre de usuario invalido o ya existe.']);
             }
         }
 
         if ($dbUser->email != $request->email) {
 
-            $otherUser= User::where('email', $request->email)
-                            ->first();
+            $otherUser = User::where('email', $request->email)
+                ->first();
 
             if ($otherUser) {
                 return redirect()
-                        ->back()
-                        ->withInput()
-                        ->withErrors(['email' => 'Email invalido o ya existe.']);
+                    ->back()
+                    ->withInput()
+                    ->withErrors(['email' => 'Email invalido o ya existe.']);
             }
         }
 
@@ -95,7 +96,7 @@ class UserController extends Controller
         }
 
         return redirect()
-                ->route('dashboard')
-                ->with('success','El usuario se actualizó correctamente');
+            ->route('dashboard')
+            ->with('success', 'El usuario se actualizó correctamente');
     }
 }

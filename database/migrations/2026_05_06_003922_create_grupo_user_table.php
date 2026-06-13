@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('grupo_user', function (Blueprint $table) {
             $table->foreignId('grupo_id')
-                  ->constrained()
-                  ->onDelete('cascade');
+                ->constrained()
+                ->onDelete('cascade');
 
             $table->foreignId('user_id')
-                  ->constrained()
-                  ->onDelete('cascade');
+                ->constrained()
+                ->onDelete('cascade');
         });
     }
 

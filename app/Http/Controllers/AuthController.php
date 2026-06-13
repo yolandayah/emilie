@@ -1,11 +1,12 @@
 <?php
+
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 use Session;
@@ -31,7 +32,7 @@ class AuthController extends Controller
     {
         $request->validate([
             'login' => 'required',
-            'password' => 'required'
+            'password' => 'required',
         ]);
 
         $login = $request->input('login');
@@ -47,40 +48,40 @@ class AuthController extends Controller
             $request->session()->regenerate();
 
             return redirect()
-                    ->intended('/dashboard')
-                    ->with('success', 'Login exitoso');
+                ->intended('/dashboard')
+                ->with('success', 'Login exitoso');
         }
 
         return back()->withInput()
-                     ->with('error','Usuario y/o constraseña invalidas');
+            ->with('error', 'Usuario y/o constraseña invalidas');
     }
 
     public function logout(Request $request): RedirectResponse
     {
-        //Session::flush();
+        // Session::flush();
 
         Auth::logout();
-        //Auth::guard('web')->logout();
+        // Auth::guard('web')->logout();
 
         $request->session()->invalidate();
-	    //Session::invalidate();
+        // Session::invalidate();
 
         $request->session()->regenerateToken();
-	    //Session::regenerateToken();
+        // Session::regenerateToken();
 
         return redirect()
-                ->route('home')
-                ->with('success','Logout exitoso');
+            ->route('home')
+            ->with('success', 'Logout exitoso');
     }
 
     public function register(Request $request): RedirectResponse
     {
         $userData = $request->validate([
-            'username' =>  'required|string|lowercase|max:255|unique:users',
-            'name' =>  'required|string|max:255',
-            'last_name' =>  'required|string|max:255',
+            'username' => 'required|string|lowercase|max:255|unique:users',
+            'name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
             'email' => 'required|string|max:255|email|unique:users',
-            'password' => 'required|string|min:6|confirmed'
+            'password' => 'required|string|min:6|confirmed',
         ]);
 
         $user = User::create($userData);
@@ -88,8 +89,8 @@ class AuthController extends Controller
         Auth::login($user);
 
         return redirect()
-                ->route('dashboard')
-                ->with('success','Registro exitoso');
+            ->route('dashboard')
+            ->with('success', 'Registro exitoso');
     }
 
     public function updatePassword(Request $request): RedirectResponse
@@ -99,12 +100,12 @@ class AuthController extends Controller
         ]);
 
         $user = auth()->user();
-        $user->password = $request->password; //Hash::make($request->password);
+        $user->password = $request->password; // Hash::make($request->password);
         $user->force_password_change = false; // <--- AQUÍ se libera al usuario
         $user->save();
 
         return redirect()
-                ->route('dashboard')
-                ->with('status', 'Contraseña actualizada correctamente.');
+            ->route('dashboard')
+            ->with('status', 'Contraseña actualizada correctamente.');
     }
 }
