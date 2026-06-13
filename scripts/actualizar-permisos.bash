@@ -15,4 +15,4 @@ find ${DIRECTORY}/storage/   -type d -exec chmod 770 {} \;
 find ${DIRECTORY}/database/  -type d -exec chmod 770 {} \;
 find ${DIRECTORY}/bootstrap/ -type d -exec chmod 770 {} \;
 
-chmod 770 ${DIRECTORY}/artisan ${DIRECTORY}/scripts ${DIRECTORY}/scripts/*
+chmod 770 ${DIRECTORY}/artisan ${DIRECTORY}/scripts ${DIRECTORY}/scripts/*.bash
