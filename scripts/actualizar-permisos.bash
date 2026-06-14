@@ -8,7 +8,7 @@ GRUPO=${2:-www-data}
 
 sudo chown -R ${USER}:${GRUPO} ${DIRECTORY}
 
-find ${DIRECTORY} -type f -exec chmod 660 {} \;
+find ${DIRECTORY} -type f -not -path "${DIRECTORY}/vendor/*" -exec chmod 660 {} \;
 find ${DIRECTORY} -type d -exec chmod 750 {} \;
 
 find ${DIRECTORY}/storage/   -type d -exec chmod 770 {} \;
