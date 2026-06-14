@@ -4,7 +4,6 @@
 
 namespace App\Models;
 
-use Database\Factories\GrupoFactory;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -14,9 +13,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 #[Fillable(['archivar', 'nombre', 'asignatura_id', 'user_id'])]
 class Grupo extends Model
 {
-    /** @use HasFactory<GrupoFactory> */
-    use HasFactory;
-
     public function users(): BelongsToMany
     {
         return $this->belongsToMany(User::class);
