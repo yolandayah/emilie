@@ -98,7 +98,7 @@ class AsignaturaController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateAsignaturaRequest $request, Asignatura $asignatura)
+    public function update(Request $request, Asignatura $asignatura)
     {
         //
     }

@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Grupo;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\App;
 
 class GrupoSeeder extends Seeder
 {

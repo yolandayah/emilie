@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Asignatura;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\App;
 
 class AsignaturaSeeder extends Seeder
 {
