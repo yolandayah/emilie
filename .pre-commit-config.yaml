@@ -27,3 +27,10 @@ repos:
     rev: v8.30.1
     hooks:
       - id: gitleaks
+  - repo: local
+    hooks:
+      - id: pint
+        name: PHP Laravel Pint
+        entry: vendor/bin/pint
+        language: system
+        types: [php]
